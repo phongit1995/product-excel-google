@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <div class="mt-5 p-2"> <p class="text-center" style="    font-size: 30px;
-          font-weight: 700;    color: #385898;">Thông Tin Sản Phẩm</p></div>
+          font-weight: 700;    color: #385898;">Danh Sách Sản Phẩm</p></div>
         <div class="row">
             <% products.forEach(item=>{ %>
               <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 my-3">
@@ -21,7 +21,12 @@
                         <p class="card-text">Giá : <span style="font-size: 1.275rem;
                           font-weight: 500;
                           color: #ee4d2d;"> <%=formatNumber(item[2])%></span> đ</p>
-                        <p>Số Lượng Còn: <span style="color: #757575;"><%=item[1]%></span></p>
+                        <%if(item[1]==0) { %>
+                          <p style="color: red;">Đã Hết Hàng</p>
+                        <%} else { %>
+                          <p>Số Lượng Còn: <span style="color: #757575;"><%=item[1]%></span></p>
+                        <%} %>
+                       
                         <p>Chi Tiết Sản Phẩm: <span><%=item[4]%></span></p>
                       </div>
                     </div>
