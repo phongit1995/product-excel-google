@@ -18,11 +18,15 @@ app.get("/",async (req,res)=>{
             spreadsheetId:process.env.SHEETID,
             range:'A:H'
         })
-        res.render('index.ejs',{products:result.data.values})
+        console.log(result.data.values);
+        res.render('index.ejs',{products:result.data.values,formatNumber:formatNumber})
     } catch (error) {
         res.send('Lỗi :' + error)
     }
 })
+function formatNumber(num) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+  }
 app.listen(process.env.PORT,function(){
     console.log('web listened on port :' + process.env.PORT);
 })

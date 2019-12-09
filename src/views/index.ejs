@@ -9,39 +9,26 @@
 </head>
 <body>
     <div class="container">
-        <div class="mt-5 p-2"> <p class="text-center">Thông Tin Sản Phẩm.</p></div>
+        <div class="mt-5 p-2"> <p class="text-center" style="    font-size: 30px;
+          font-weight: 700;    color: #385898;">Thông Tin Sản Phẩm</p></div>
         <div class="row">
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+            <% products.forEach(item=>{ %>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 my-3">
+                  <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="<%=item[3]%>" alt="Card image cap" style="width: 100%;height: 15rem;">
+                      <div class="card-body">
+                        <h5 class="card-title"><%=item[0]%></h5>
+                        <p class="card-text">Giá : <span style="font-size: 1.275rem;
+                          font-weight: 500;
+                          color: #ee4d2d;"> <%=formatNumber(item[2])%></span> đ</p>
+                        <p>Số Lượng Còn: <span style="color: #757575;"><%=item[1]%></span></p>
+                        <p>Chi Tiết Sản Phẩm: <span><%=item[4]%></span></p>
+                      </div>
                     </div>
-                  </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                  </div>
-            </div>
+              </div>
+            <%})%>
         </div> 
     </div>
 </body>
+
 </html>
