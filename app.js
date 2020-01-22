@@ -19,7 +19,7 @@ app.get("/",async (req,res)=>{
             range:'A:H'
         })
         console.log(result.data.values);
-        res.render('index.ejs',{products:result.data.values,formatNumber:formatNumber})
+        res.render('index.ejs',{products:result.data.values.reverse(),formatNumber:formatNumber})
     } catch (error) {
         res.send('Lỗi :' + error)
     }
